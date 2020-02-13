@@ -1,0 +1,33 @@
+/* pages/info/info.wxss */
+
+/* 
+  修改button样式，需要在button标签内“size="default"”
+  button[size] {
+    样式
+  }
+ */
+ 
+.userinfo {
+  margin-top: 40rpx;
+  height: 140rpx;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.userinfo-avatar[size] {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: #efefef;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

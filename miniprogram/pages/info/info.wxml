@@ -1,0 +1,13 @@
+<!--pages/info/info.wxml-->
+<button bindtap="callFunction">调用云函数</button>
+
+<!-- 用户 openid -->
+<view class="userinfo">
+  <button 
+    open-type="getUserInfo" 
+    bindgetuserinfo="getUserInfo"
+    class="userinfo-avatar"
+    style="background-image: url({{avatarUrl}})"
+    size="default"
+  ></button>
+</view>

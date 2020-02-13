@@ -1,0 +1,4 @@
+<!--pages/test/test.wxml-->
+<button bindtap="pauseBgm">暂停</button>
+<button bindtap="playBgm" type="primary">继续</button>
+<button bindtap="stopBgm">停止</button>

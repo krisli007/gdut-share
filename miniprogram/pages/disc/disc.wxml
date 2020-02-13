@@ -1,0 +1,48 @@
+<!--pages/disc/disc.wxml-->
+
+<!-- 轮播图 -->
+<swiper 
+  class="banner-swiper"
+  indicator-dots="{{banner.indicatorDots}}"
+  autoplay="{{banner.autoplay}}" 
+  interval="{{banner.interval}}" 
+  duration="{{banner.duration}}"
+  circular="{{banner.circular}}">
+  <block wx:for="{{banner.list}}" wx:key="index">
+    <swiper-item>
+      <image src="{{item}}" class="banner-img"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 轮播图 -->
+
+<!-- 搜索框 -->
+<input type="text" class="search-box" placeholder="搜索" auto-focus></input>
+
+<!-- 选项卡导航 -->
+<view style="height:70rpx">
+  <view class="category-box category-{{categoryFixed ? 'fixed' : ''}}">
+    <block wx:for="{{category.list}}" wx:key="index" wx:for-index="index">
+      <text data-index="{{index}}" bindtap="switchTab" class="[{{ index === categoryIndex ? 'category-active' : ''}}, category-item]">{{item}}</text>
+    </block>
+  </view>
+</view>
+
+<!-- 选项卡内容 -->
+<view class="container">
+  <view class="category-content" id="category">
+    <block wx:for="{{[0, 1, 2, 3, 4, 5]}}" wx:key="index">
+      <view wx:if="{{item === categoryIndex}}" style="text-align:center" class="testTab">{{category.list[categoryIndex]}}</view>
+      <view wx:if="{{item === categoryIndex}}">
+        <block wx:for="{{product}}" wx:key="index">
+          <view class="product-item">
+            <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3715593323,1824219&fm=26&gp=0.jpg" class="goods-img"></image>
+            <!-- <view class="goods-name">Apple iPhone XS Max (A2104) 256GB 银色 移动联通电信4G手机 双卡双待</view> -->
+            <view class="goods-name">{{item.title}}</view>
+            <text>{{item.detail}}</text>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+</view>

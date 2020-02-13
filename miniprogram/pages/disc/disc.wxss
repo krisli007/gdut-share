@@ -1,0 +1,74 @@
+/* pages/disc/disc.wxss */
+.banner-swiper {
+  width: 100%;
+  height: 508rpx;
+}
+.banner-img {
+  width: 100%;
+  height: 508rpx;
+}
+/* container */
+.container {
+  padding: 0 20rpx;
+}
+/* search */
+.search-box {
+  position: absolute;
+  top: 20rpx;
+  left: 40rpx;
+  width: 670rpx;
+  height: 70rpx;
+  padding-left: 70rpx;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  background: #eee url('http://www.krislee.xyz/mini/search.png') no-repeat 10rpx center;
+  background-size: 50rpx;
+}
+/* category-box */
+.category-box {
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #fff;
+}
+.category-fixed {
+  position: fixed;
+  top: 0;
+}
+.category-item {
+  padding: 12rpx 0;
+  text-align: center;
+}
+.category-active {
+  color: #ff9100;
+  border-bottom: 4rpx solid #ff9100;
+}
+
+/* 商品 */
+.testTab {
+  padding-top: 70rpx;
+}
+.product-item {
+  display: flex;
+  margin-top: 20rpx; 
+}
+.goods-img {
+  width: 208rpx;
+  height: 208rpx;
+  margin-right: 20rpx;
+}
+.goods-name {
+  flex: 1;
+  font-size: 28rpx;
+  line-height: 30rpx;
+  height: 60rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; 
+
+}

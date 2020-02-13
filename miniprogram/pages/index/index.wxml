@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<button bindtap="choseImg">选择照片</button>
+
+<form bindsubmit="formSubmit">
+  <input name="title" placeholder="标题"></input>
+  <textarea name="detail" placeholder="输入你的商品详情" auto-height="true">
+    
+  </textarea> 
+  <button form-type="submit">submit</button>
+</form>
+
+<block wx:for="{{img}}" wx:key="*this">
+  <image src="{{item}}" mode="widthFix"></image>
+</block>
+
+<block wx:for="{{product}}" wx:key="index">
+  <view class="pro-item">
+    <text>{{item._openid}}</text>
+    <text>{{item._id}}</text>
+    <text>{{item.title}}{{index}}</text>
+    <text>{{item.detail}}</text>
+  </view>
+</block>
