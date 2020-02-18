@@ -1,0 +1,7 @@
+<!--miniprogram/pages/login/login.wxml-->
+
+<button 
+  open-type="getUserInfo" 
+  bindgetuserinfo="getUserInfo"
+  type="primary"
+></button>

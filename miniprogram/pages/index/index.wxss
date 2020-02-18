@@ -1,7 +1,63 @@
 /**index.wxss**/
-
-.pro-item {
+page {
+  position: relative;
+  padding: 0 60rpx;
+  box-sizing: border-box;
+}
+.info-box {
+  margin: 120rpx 0;
+}
+.send-btn {
+  position: fixed;
+  top: 0;
+  width: 630rpx;
+  height: 120rpx;
+  z-index: 2;
   display: flex;
-  flex-direction: column;
   align-items: center;
+}
+input {
+  padding: 20rpx 0;
+  margin: 20rpx 0;
+  border-top: 2rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
+}
+/* .real-amount {
+  padding-left: 40rpx;
+  background: url('../../images/index/money.png') no-repeat left center;
+  background-size: 40rpx;
+} */
+.placeholder {
+  color: #000;
+}
+.input-detail {
+  height: 180rpx;
+  overflow-y: scroll;
+}
+.chose-img { 
+  background: #eee url('http://www.krislee.xyz/mini/add.png') no-repeat center center;
+  background-size: 30%;
+}
+.img-list {
+  margin-top: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.img-item {
+  position: relative;
+}
+.img,
+.chose-img {
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.delete-img {
+  position: absolute;
+  top: 15rpx;
+  right: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
 }

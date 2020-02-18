@@ -1,23 +1,30 @@
 {
   "pages": [
-    "pages/info/info",
     "pages/disc/disc",
+    "pages/info/info",
     "pages/index/index",
     "pages/chat/chat",
-    "pages/test/test"
+    "pages/login/login",
+    "pages/product/product",
+    "pages/p2pchat/p2pchat",
+    "pages/publish/publish",
+    "pages/prodlist/prodlist"
   ],
   "requiredBackgroundModes": [
     "audio"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#f8f8f8",
     "navigationBarTitleText": "标题",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
   },
   "tabBar": {
     "color": "#333",
     "selectedColor": "#1296db",
+    "backgroundColor": "#f8f8f8",
+    "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/disc/disc",

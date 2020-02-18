@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "广工好物",
+  "disableScroll": true,
   "usingComponents": {}
 }

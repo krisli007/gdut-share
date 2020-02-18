@@ -2,82 +2,119 @@
 const db = wx.cloud.database()
 const _ = db.command
 
+const app = getApp()
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-
   data: {
-    avatarUrl: ''
+    loginStatus: 0,
+    sendProduct: null,
+    saleProduct:null,
+    buyProduct: null,
+    starProduct: null,
   },
 
-  callFunction() {
-    wx.cloud.callFunction({
-      name: 'login'
-    }).then(console.log)
-  },
-
-  getUserInfo: function (e) {
+  // 第一次登录获得用户授权信息
+  getUserInfo(e) {
+    app.globalData.userInfo = e.detail.userInfo
+    app.globalData.loginStatus = 1,
     this.setData({
-      avatarUrl: e.detail.userInfo.avatarUrl
+      loginStatus: 1
     })
-    console.log(e.detail.userInfo)
+    this.initPageInfo()
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  // 我发布的
+  getSendProduct() {
+    const that = this
+    wx.cloud.callFunction({
+      name: 'getProductInfo',
+      data: { method: 'getUserSend' }
+    }).then(res => {
+        that.setData({ sendProduct: res.result.data })
+    })
+  }, 
+  // 我卖出的 
+  getSaleProduct() {
+    const that = this
+    wx.cloud.callFunction({
+      name: 'getProductInfo',
+      data: { method: 'getUserSale' }
+    }).then(res => {
+        that.setData({ sendProduct: res.result.data })
+    })
+  }, 
+  // 我买到的
+  getBuyProduct() {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 我收藏的
+  getStarProduct() {
+    const that = this
+    wx.cloud.callFunction({
+      name: 'getProductInfo',
+      data: { method: 'getUserStar' }
+    }).then(res => {
+        that.setData({ starProduct: res.result.data })
+    })
+  }, 
+  // 我干的一切的商品列表
+  async toUserProdListUrl(e) {
+    await app.checkLoginStatus()
+    let index = e.currentTarget.dataset.index
+    let prodType = null
+    let that = this.data
+    
+    switch (index) {
+      case '0':
+        prodType = that.sendProduct
+        break;
+      case '1':
+        prodType = that.saleProduct
+        break;
+      case '2':
+        prodType = that.buyProduct
+        break;
+      case '3':
+        prodType = that.starProduct
+        break;
+    }
+    wx.navigateTo({
+      url: `../prodlist/prodlist?index=${index}&prodlist=` + JSON.stringify(prodType),
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
+  // 初始化函数
+  initPageInfo() {
+    if (app.globalData.loginStatus === 0) { 
+      this.setData({
+        loginStatus: 0
+      })
+      return 
+    } else {
+      this.setData({
+        loginStatus: 1
+      })
+    }
+    this.getSendProduct()
+    // this.getSaleProduct()
+    // this.getBuyProduct
+    this.getStarProduct()
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  // 页面第一次进入初始化数据
+  onLoad: function () {
+    this.initPageInfo()
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  // 下拉更新数据
   onPullDownRefresh: function () {
-
+    this.initPageInfo()
+    wx.showToast({
+      icon: 'loading',
+      title: '加载中',
+    })
+    wx.stopPullDownRefresh({})
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

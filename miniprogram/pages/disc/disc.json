@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "发现好物",
+  "enablePullDownRefresh": true,
   "usingComponents": {}
 }

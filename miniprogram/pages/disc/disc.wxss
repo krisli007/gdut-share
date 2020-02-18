@@ -7,10 +7,7 @@
   width: 100%;
   height: 508rpx;
 }
-/* container */
-.container {
-  padding: 0 20rpx;
-}
+
 /* search */
 .search-box {
   position: absolute;
@@ -24,6 +21,7 @@
   background: #eee url('http://www.krislee.xyz/mini/search.png') no-repeat 10rpx center;
   background-size: 50rpx;
 }
+
 /* category-box */
 .category-box {
   width: 100%;
@@ -33,10 +31,6 @@
   justify-content: space-evenly;
   background-color: #fff;
 }
-.category-fixed {
-  position: fixed;
-  top: 0;
-}
 .category-item {
   padding: 12rpx 0;
   text-align: center;
@@ -45,30 +39,83 @@
   color: #ff9100;
   border-bottom: 4rpx solid #ff9100;
 }
+.category-fixed {
+  position: fixed;
+  top: 0;
+}
 
 /* 商品 */
-.testTab {
-  padding-top: 70rpx;
+.product-content {
+  padding: 0 20rpx 40rpx 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .product-item {
+  width: 345rpx;
   display: flex;
+  flex-direction: column;
   margin-top: 20rpx; 
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 8rpx;
 }
 .goods-img {
-  width: 208rpx;
-  height: 208rpx;
-  margin-right: 20rpx;
+  width: 100%;
+  height: 345rpx;
+  border-radius: 8rpx 8rpx 0 0; 
 }
-.goods-name {
+.product-info {
   flex: 1;
-  font-size: 28rpx;
-  line-height: 30rpx;
-  height: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+}
+.product-title {
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 40rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2; 
+}
+.product-detail {
+  margin-top: 10rpx;
+  height: 66rpx;
+  line-height: 22rpx;
+  font-size: 20rpx;
+  color: #5c5c5c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; 
+}
+.realAmount {
+  color: #f50;
+}
+.userInfo {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
 
+/* 底部提示 */
+.btm-tip {
+  height: 120rpx;
+  color: #dfdfdf;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
 }

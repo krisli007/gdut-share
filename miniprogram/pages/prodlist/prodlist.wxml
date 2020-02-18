@@ -1,0 +1,18 @@
+<!--miniprogram/pages/prodlist/prodlist.wxml-->
+<view class="container">
+  <view wx:for="{{prodList}}" wx:key="index" class="prod-item flex">
+    <image src="{{item.imgIdArr[0]}}" class="item-img" mode="aspectFill"></image>
+    <view class="flex1 flex-v flex-jsb">
+      <text class="text-of-more-1 title">{{item.title}}</text>
+      <text class="real-amount">¥{{item.realAmount}}</text>
+      <view class="lcs-info">
+        喜欢{{item.love.length}}
+        评论{{item.comment.length}}
+        收藏{{item.star.length}}
+      </view>
+      <view class="more">
+        更多详情..
+      </view>
+    </view>
+  </view>
+</view>
