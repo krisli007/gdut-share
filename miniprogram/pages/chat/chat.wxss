@@ -1,1 +1,37 @@
 /* pages/test/test.wxss */
+page {
+  height: 100%;
+}
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+.content {
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #eee;
+}
+.latestTime,
+.latestMsg {
+  font-size: 28rpx;
+  color: #666;
+}
+.chat-item {
+  position: relative;
+}
+.newTag {
+  position: absolute;
+  left: 85rpx;
+  top: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 30rpx;
+  font-size: 20rpx;
+  color: #eee;
+  background-color: red;
+}
+/* 未登录提示 */
+.tips {
+  height: 100%;
+}

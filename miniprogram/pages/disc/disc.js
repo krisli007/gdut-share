@@ -38,6 +38,7 @@ Page({
   
   // 监听页面滚动，判断是否要吸顶
   onPageScroll: function (e) {
+    
     this.setData({
       categoryFixed: e.scrollTop > 254
     })
@@ -56,7 +57,9 @@ Page({
   },
 
   onShow: function () {
-    // 每次进入disc页面都会获取一次最新数据
+    app.updateInfoPage()
+    // app.getNewChatNum()
+    // 每次进入disc页面都会获取一次最新商品数据
     wx.cloud.callFunction({
       name: 'getProductInfo',
       data: {

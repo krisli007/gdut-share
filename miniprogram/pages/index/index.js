@@ -166,5 +166,9 @@ Page({
 
   onLoad: function () {
     
+  },
+  onShow:function () {
+    app.getNewChatNum()
+    app.updateInfoPage()
   }
 })

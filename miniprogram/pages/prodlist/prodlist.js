@@ -1,8 +1,18 @@
 // miniprogram/pages/prodlist/prodlist.js
+const app = getApp()
 Page({
 
   data: {
     prodList: null
+  },
+
+  // 跳转到商详页
+  toProductUrl(e) {
+    let index = e.currentTarget.dataset.index
+    let id = this.data.prodList[index]._id
+    wx.navigateTo({
+      url: `../product/product?id=${id}`,
+    })
   },
 
   onLoad: function (options) {

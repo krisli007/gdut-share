@@ -15,7 +15,9 @@ exports.main = async (event, context) => {
   const { OPENID } = cloud.getWXContext()
   // 选取数据库
   const productCollection = db.collection('product')
-
+  console.log(OPENID);
+  console.log(cloud.getWXContext());
+  
   // 点赞更新
   if (event.name === 'love') {
     if (event.method === 'add') {
@@ -63,7 +65,14 @@ exports.main = async (event, context) => {
     if (event.method === 'add') {
       return productCollection.doc(event.id).update({
         data: {
-          comment: _.unshift(event.data)
+          comment: _.unshift(event.data),
+          newComNum: _.inc(1)
+        }
+      })
+    } else if (event.method === 'clearNum') {
+      return productCollection.doc(event.id).update({
+        data: {
+          newComNum: 0
         }
       })
     }

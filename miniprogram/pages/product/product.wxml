@@ -2,7 +2,7 @@
 <view wx:if="{{userType != -1}}" class="page">
   <!-- 顶部信息栏 -->
   <view class="top">
-    <view class="top-left">
+    <view class="top-left" catchtap="toUserPage">
       <image src="{{product.userInfo.avatarUrl}}" class="avatar"></image>
       <text>{{product.userInfo.nickName}}</text>
     </view>

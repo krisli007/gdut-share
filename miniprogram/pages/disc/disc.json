@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "发现好物",
+  "backgroundColor": "#f8f8f8",
   "enablePullDownRefresh": true,
   "usingComponents": {}
 }

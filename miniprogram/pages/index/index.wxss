@@ -5,11 +5,9 @@ page {
   box-sizing: border-box;
 }
 .info-box {
-  margin: 120rpx 0;
+  margin-bottom: 120rpx;
 }
 .send-btn {
-  position: fixed;
-  top: 0;
   width: 630rpx;
   height: 120rpx;
   z-index: 2;

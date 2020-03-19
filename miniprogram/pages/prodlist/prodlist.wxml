@@ -1,6 +1,9 @@
 <!--miniprogram/pages/prodlist/prodlist.wxml-->
+
+<image src="../../images/info/bg.png" class="bg-img"></image>
+
 <view class="container">
-  <view wx:for="{{prodList}}" wx:key="index" class="prod-item flex">
+  <view wx:for="{{prodList}}" wx:key="index" class="prod-item flex"  data-index="{{index}}" bindtap="toProductUrl">
     <image src="{{item.imgIdArr[0]}}" class="item-img" mode="aspectFill"></image>
     <view class="flex1 flex-v flex-jsb">
       <text class="text-of-more-1 title">{{item.title}}</text>
@@ -13,6 +16,7 @@
       <view class="more">
         更多详情..
       </view>
+      <view class="new-com-msg" wx:if="{{item.newComNum > 0}}">你有{{item.newComNum}}条新的评论</view>
     </view>
   </view>
 </view>

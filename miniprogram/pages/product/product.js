@@ -16,6 +16,14 @@ Page({
     starNum: '',
     commentList: null
   },
+  // 去个人主页
+  async toUserPage() {
+    await app.checkLoginStatus()
+    let openid = this.data.product._openid
+    wx.navigateTo({
+      url: `../userpage/userpage?openid=${openid}`,
+    })
+  },
   // 全屏观看图片
   previewImage(e) {
     let index = e.currentTarget.dataset.index
@@ -88,9 +96,17 @@ Page({
   async onTouchBtmLeft(e) {
     try {
       await app.checkLoginStatus()
+      console.log(e);
+      
       let index = e.currentTarget.dataset.index
+      // console.log('1为点赞，2为评论，3为收藏', index)
+
       let product = this.data.product
+      // console.log('商品信息', product)
+
       let id = product._id
+      // console.log('商品id', id)
+
       if (index === '1') {
         this.setData({
           isLove: !this.data.isLove
@@ -237,8 +253,14 @@ Page({
   // “我想要”跳转私聊
   async toSaler() {
     await app.checkLoginStatus()
+    let prod = this.data.product
+    let prodOpenId = prod._openid
+    let prodUserInfo = prod.userInfo
+    let buyUserOpenId = this.data.userOpenId
+    console.log(this.data.userOpenId);
+    
     wx.navigateTo({
-      url: '../p2pchat/p2pchat',
+      url: `../p2pchat/p2pchat?prodOpenId=${prodOpenId}&buyUserOpenId=${buyUserOpenId}&prodUserInfo=` + JSON.stringify(prodUserInfo),
     })
   },
 
@@ -252,6 +274,8 @@ Page({
           id: id
         }
       }).then(res => {
+          console.log('getId通过id来查找商品信息',res);
+          
         that.setData({
           product: res.result.data
         })
@@ -265,13 +289,15 @@ Page({
 
   // 初始化页面数据
   initProductInfo(prod, that) {
+    let userOpenId = null
     // 调用云函数获取 userOpenid
     wx.cloud.callFunction({
       name: 'getUserOpenId'
     }).then(res => {
-      let userOpenId = res.result.openid
+      console.log('得到userOpenId', res);
+      userOpenId = res.result.userInfo.openId
       that.setData({
-        openid: userOpenId,
+        userOpenId: userOpenId,
         loveNum: prod.love.length,
         starNum: prod.star.length,
         comNum: prod.comment.length,
@@ -283,10 +309,24 @@ Page({
         // 判断用户类型  1:主人态  2:客人态
         userType: userOpenId === prod._openid ? 1 : 0
       })
+    }).then(res => {
+      // 清除新增评论tag
+      if (userOpenId === prod._openid) {
+        wx.cloud.callFunction({
+          name: 'updateProduct',
+          data: {
+            id: prod._id,
+            name: 'comment',
+            method: 'clearNum'
+          }
+        })
+      }
     })
   },
 
   onLoad: function (options) {
+    console.log(options);
+    
     // 获得url传进来的商品信息id
     const id = options.id
     const that = this

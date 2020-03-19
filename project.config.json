@@ -10,11 +10,12 @@
 		"enhance": true,
 		"checkSiteMap": false
 	},
-	"appid": "wx6862194c3d695adc",
+	"appid": "wxb173bc1ba5bb231f",
 	"projectname": "krisli-gdut-share",
 	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,

@@ -11,7 +11,8 @@ const _ = db.command
 exports.main = async (event, context) => {
   const { OPENID } = cloud.getWXContext()
   const productCollection = db.collection('product')
-
+  // 他人主页发布 pageOpenId  我的主页发布 OPENID
+  let newOpenId = event.pageOpenId ? event.pageOpenId : OPENID
   if (event.method === 'getAll') {
     // 获取全部商品信息列表
     return productCollection.get()
@@ -22,7 +23,7 @@ exports.main = async (event, context) => {
   }
   else if (event.method === 'getUserSend') {
     return productCollection.where({
-      _openid: OPENID
+      _openid: newOpenId
     }).get()
   }
   else if (event.method === 'getUserStar') {

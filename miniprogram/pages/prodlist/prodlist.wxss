@@ -1,16 +1,21 @@
 /* miniprogram/pages/prodlist/prodlist.wxss */
 page {
-  background-color: #1296db;
+  height: 100%;
 }
 .container {
-  padding-bottom: 60rpx;
+  height: 100%;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+  overflow-y: scroll;
 }
 .prod-item {
+  position: relative;
   margin: 40rpx;
   margin-bottom: 0;
   padding: 20rpx;
   border-radius: 16rpx;
   background-color: #fff;
+  box-shadow: inset 0 0 15rpx 0 #ddd;
 }
 .item-img {
   width: 200rpx;
@@ -33,5 +38,13 @@ page {
 }
 .more {
   text-align: right;
-  color: #6c6c6c;
+  color: #979797;
+  font-size: 26rpx;
+}
+.new-com-msg {
+  position: absolute;
+  bottom: 20rpx;
+  left: 240rpx;
+  font-size: 26rpx;
+  color: #1296bd;
 }

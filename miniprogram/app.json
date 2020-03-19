@@ -8,7 +8,10 @@
     "pages/product/product",
     "pages/p2pchat/p2pchat",
     "pages/publish/publish",
-    "pages/prodlist/prodlist"
+    "pages/prodlist/prodlist",
+    "pages/userpage/userpage",
+    "pages/settingpage/settingpage",
+    "pages/carelist/carelist"
   ],
   "requiredBackgroundModes": [
     "audio"
