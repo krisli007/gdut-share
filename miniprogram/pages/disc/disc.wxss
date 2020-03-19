@@ -18,8 +18,8 @@
   padding-left: 70rpx;
   border-radius: 8rpx;
   box-sizing: border-box;
-  background: #eee url('http://www.krislee.xyz/mini/search.png') no-repeat 10rpx center;
-  background-size: 50rpx;
+  background: rgb(255, 255, 255, 0.8) url('http://cimg1.fenqile.com/product5/M00/4A/A6/MdEHAF5y_heAH5VFAAAkNs-hJKA416.png') no-repeat 10rpx center;
+  background-size: 40rpx;
 }
 
 /* category-box */

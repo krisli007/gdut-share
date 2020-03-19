@@ -1,17 +1,13 @@
 // pages/disc/disc.js
 
 const app = getApp()
-
+import imgSource from './imgSource.js'
 Page({
 
   data: {
     // 轮播图
     banner: {
-      list: ['http://www.krislee.xyz/mini/gdut1.jpg',
-      'http://www.krislee.xyz/mini/gdut2.jpg',
-      'http://www.krislee.xyz/mini/gdut3.jpg',
-      'http://www.krislee.xyz/mini/gdut4.jpg',
-      'http://www.krislee.xyz/mini/gdut5.jpg',],
+      list: imgSource.imgSource,
       indicatorDots: false,
       autoplay: true,
       interval: 3500,
@@ -57,6 +53,7 @@ Page({
   },
 
   onShow: function () {
+    console.log(imgSource.imgSource)
     app.updateInfoPage()
     // app.getNewChatNum()
     // 每次进入disc页面都会获取一次最新商品数据
