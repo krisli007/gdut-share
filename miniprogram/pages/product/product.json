@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "商品详情",
-  "disableScroll": true,
-  "usingComponents": {}
+    "navigationBarTitleText": "商品详情",
+    "disableScroll": true,
+    "usingComponents": {}
 }

@@ -1,50 +1,47 @@
 <!--pages/test/test.wxml-->
 <view wx:if="{{loginStatus}}">
-  <block wx:for="{{chatPageList}}" wx:key="index">
-    <!-- 再循环里面判断条件，如果userOpenid = buyopenId prodUserInfo-->
-    <view class="flex-ac lr-padding-20 chat-item" data-index="{{index}}" bindtap="top2pchat" wx:if="{{item.chatList != ''}}">
-      <view class="newTag flex-jc" wx:if="{{m2.getMsgNewNum(userOpenId,item)}}">{{m2.getMsgNewNum(userOpenId,item)}}</view>
-      <image src="{{userOpenId === item.buyOpenId ? item.prodUserInfo.avatarUrl : item.buyUserInfo.avatarUrl}}" class="avatar"></image>
-      <view class="content flex-v flex1">
-        <view class="flex-jsb">
-          <text>{{userOpenId === item.buyOpenId ? item.prodUserInfo.nickName : item.buyUserInfo.nickName}}</text>
-          <!-- 这里的时间应该可以用wxs处理，学一下 -->
-          <text class="latestTime">{{m1.latestDate(item.chatList)}}</text>
+    <block wx:for="{{chatPageList}}" wx:key="index">
+        <!-- 再循环里面判断条件，如果userOpenid = buyopenId prodUserInfo-->
+        <view class="flex-ac lr-padding-20 chat-item" data-index="{{index}}" bindtap="top2pchat" wx:if="{{item.chatList != ''}}">
+            <view class="newTag flex-jc" wx:if="{{m2.getMsgNewNum(userOpenId,item)}}">{{m2.getMsgNewNum(userOpenId,item)}}</view>
+            <image src="{{userOpenId === item.buyOpenId ? item.prodUserInfo.avatarUrl : item.buyUserInfo.avatarUrl}}" class="avatar"></image>
+            <view class="content flex-v flex1">
+                <view class="flex-jsb">
+                    <text>{{userOpenId === item.buyOpenId ? item.prodUserInfo.nickName : item.buyUserInfo.nickName}}</text>
+                    <!-- 这里的时间应该可以用wxs处理，学一下 -->
+                    <text class="latestTime">{{m1.latestDate(item.chatList)}}</text>
+                </view>
+                <text class="latestMsg">{{m1.latestMsg(item.chatList)}}</text>
+            </view>
         </view>
-        <text class="latestMsg">{{m1.latestMsg(item.chatList)}}</text>
-      </view>
-    </view>
-  </block>
+    </block>
 </view>
 <view wx:else class="tips flex-vm">
-  登录查看更多哦～
+    登录查看更多哦～
 </view>
 <wxs module="m1">
-  var latestDate = function(array) {
-    return latestDate = array.slice(-1)[0].sendTime.substring(5,16)
-  }
-  var latestMsg = function(array) {
-    return latestMsg = array.slice(-1)[0].content.substring(0,16) + '...'
-  }
-  module.exports = {
-  latestDate: latestDate,
-  latestMsg: latestMsg
-}
+    var latestDate = function(array) {
+        return latestDate = array.slice(-1)[0].sendTime.substring(5, 16)
+    }
+    var latestMsg = function(array) {
+        return latestMsg = array.slice(-1)[0].content.substring(0, 16) + '...'
+    }
+    module.exports = {
+        latestDate: latestDate,
+        latestMsg: latestMsg
+    }
 </wxs>
 
 <!-- 计算最新信息提醒 -->
 <wxs module="m2">
-  var getMsgNewNum = function(userOpenId,chatItem) {
-    if (userOpenId === chatItem.chatList.slice(-1)[0].openid) {
-      return 0
-    } else {
-      return chatItem.num
+    var getMsgNewNum = function(userOpenId, chatItem) {
+        if (userOpenId === chatItem.chatList.slice(-1)[0].openid) {
+            return 0
+        } else {
+            return chatItem.num
+        }
     }
-  }
-  module.exports = {
-    getMsgNewNum: getMsgNewNum
-  }
+    module.exports = {
+        getMsgNewNum: getMsgNewNum
+    }
 </wxs>
-
-
-

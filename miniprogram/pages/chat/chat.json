@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "聊天",
-  "enablePullDownRefresh": true,
-  "usingComponents": {}
+    "navigationBarTitleText": "聊天",
+    "enablePullDownRefresh": true,
+    "usingComponents": {}
 }

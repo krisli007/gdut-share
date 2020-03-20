@@ -1,22 +1,22 @@
 <!--miniprogram/pages/p2pchat/p2pchat.wxml-->
 <view wx:if="{{isShow}}" class="flex-v container">
-  <scroll-view scroll-y class="flex1 chat-box" scroll-into-view="{{toLast}}">
-    <block wx:for="{{chatList}}" wx:key="index">
-      <!-- 这是卖家 -->
-      <view id="item{{index + 1}}" wx:if="{{item.openid === prodOpenId}}" class="flex-js lr-margin-20 prod">
-        <image src="{{prodUserInfo.avatarUrl}}" class="avatar"></image>
-        <view class="content">{{item.content}}</view>
-      </view>
+    <scroll-view scroll-y class="flex1 chat-box" scroll-into-view="{{toLast}}">
+        <block wx:for="{{chatList}}" wx:key="index">
+            <!-- 这是卖家 -->
+            <view id="item{{index + 1}}" wx:if="{{item.openid === prodOpenId}}" class="flex-js lr-margin-20 prod">
+                <image src="{{prodUserInfo.avatarUrl}}" class="avatar"></image>
+                <view class="content">{{item.content}}</view>
+            </view>
 
-      <!-- 这是买家 -->
-      <view id="item{{index + 1}}" wx:if="{{item.openid === buyUserOpenId}}" class="flex-je lr-margin-20 buy">
-        <view class="content">{{item.content}}</view>
-        <image src="{{buyUserInfo.avatarUrl}}"  class="avatar" bindtap="scrollTo"></image>
-      </view>
-    </block>
-    <view id="btmBoxTop"></view>
-  </scroll-view>
-  <view class="btm-box">
-    <input placeholder="输入你想说的话吧..." adjust-position="false" confirm-type="send" confirm-hold="true" bindconfirm="sendMsg" value="{{clear}}" bindkeyboardheightchange="getFocus"></input>
-  </view>
+            <!-- 这是买家 -->
+            <view id="item{{index + 1}}" wx:if="{{item.openid === buyUserOpenId}}" class="flex-je lr-margin-20 buy">
+                <view class="content">{{item.content}}</view>
+                <image src="{{buyUserInfo.avatarUrl}}" class="avatar" bindtap="scrollTo"></image>
+            </view>
+        </block>
+        <view id="btmBoxTop"></view>
+    </scroll-view>
+    <view class="btm-box">
+        <input placeholder="输入你想说的话吧..." adjust-position="false" confirm-type="send" confirm-hold="true" bindconfirm="sendMsg" value="{{clear}}" bindkeyboardheightchange="getFocus"></input>
+    </view>
 </view>

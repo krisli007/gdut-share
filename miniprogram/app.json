@@ -1,60 +1,59 @@
 {
-  "pages": [
-    "pages/disc/disc",
-    "pages/info/info",
-    "pages/index/index",
-    "pages/chat/chat",
-    "pages/login/login",
-    "pages/product/product",
-    "pages/p2pchat/p2pchat",
-    "pages/publish/publish",
-    "pages/prodlist/prodlist",
-    "pages/userpage/userpage",
-    "pages/settingpage/settingpage",
-    "pages/carelist/carelist"
-  ],
-  "requiredBackgroundModes": [
-    "audio"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#f8f8f8",
-    "navigationBarTitleText": "标题",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": false
-  },
-  "tabBar": {
-    "color": "#333",
-    "selectedColor": "#1296db",
-    "backgroundColor": "#f8f8f8",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/disc/disc",
-        "text": "发现",
-        "iconPath": "images/tabBar/disc.png",
-        "selectedIconPath": "images/tabBar/disc_fill.png"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "发帖",
-        "iconPath": "images/tabBar/add.png",
-        "selectedIconPath": "images/tabBar/add_fill.png"
-      },
-      {
-        "pagePath": "pages/chat/chat",
-        "text": "聊天",
-        "iconPath": "images/tabBar/chat.png",
-        "selectedIconPath": "images/tabBar/chat_fill.png"
-      },
-      {
-        "pagePath": "pages/info/info",
-        "text": "我的",
-        "iconPath": "images/tabBar/info.png",
-        "selectedIconPath": "images/tabBar/info_fill.png"
-      }
-    ]
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/disc/disc",
+        "pages/info/info",
+        "pages/index/index",
+        "pages/chat/chat",
+        "pages/product/product",
+        "pages/p2pchat/p2pchat",
+        "pages/publish/publish",
+        "pages/prodlist/prodlist",
+        "pages/userpage/userpage",
+        "pages/settingpage/settingpage",
+        "pages/carelist/carelist"
+    ],
+    "requiredBackgroundModes": [
+        "audio"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#f8f8f8",
+        "navigationBarTitleText": "标题",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": false
+    },
+    "tabBar": {
+        "color": "#333",
+        "selectedColor": "#1296db",
+        "backgroundColor": "#f8f8f8",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/disc/disc",
+                "text": "发现",
+                "iconPath": "images/tabBar/disc.png",
+                "selectedIconPath": "images/tabBar/disc_fill.png"
+            },
+            {
+                "pagePath": "pages/index/index",
+                "text": "发帖",
+                "iconPath": "images/tabBar/add.png",
+                "selectedIconPath": "images/tabBar/add_fill.png"
+            },
+            {
+                "pagePath": "pages/chat/chat",
+                "text": "聊天",
+                "iconPath": "images/tabBar/chat.png",
+                "selectedIconPath": "images/tabBar/chat_fill.png"
+            },
+            {
+                "pagePath": "pages/info/info",
+                "text": "我的",
+                "iconPath": "images/tabBar/info.png",
+                "selectedIconPath": "images/tabBar/info_fill.png"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }

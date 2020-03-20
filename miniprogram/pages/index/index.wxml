@@ -1,31 +1,31 @@
 <!--index.wxml-->
 <form bindsubmit="formSubmit">
-  <view class="send-btn">
-    <button form-type="submit" type="primary">发布</button>
-  </view>
-  <view class="info-box">
-    <input name="title" placeholder="标题（点击输入）" value="{{default}}"></input>
-
-    <picker name="category" bindchange="bindPickerChange" range="{{category}}" value="{{pickerIndex}}">物品类别：
-      <text>{{category[pickerIndex]}}</text>
-    </picker>
-
-    <input name="realAmount" type="digit" placeholder="价格（点击输入）" value="{{realAmount}}" class="real-amount"></input>
-
-    <textarea name="detail" placeholder="输入你的商品详情，出售理由，新旧程度..." maxlength="-1" value="{{default}}"  class="input-detail"></textarea>
-    
-
-
-    <view class="img-list"> 
-      <block wx:for="{{tempFilePaths}}" wx:key="index" wx:for-item="imgItem">
-        <view class="img-item">
-          <image src="../../images/index/close.png" data-index="{{index}}" class="delete-img" bindtap="deleteImg"></image>
-          <image src="{{imgItem}}" class="img" mode="aspectFill"></image>
-        </view>
-      </block>
-      <view bindtap="choseImg" class="chose-img"  wx:if="{{tempFilePaths.length < 9}}"></view>
+    <view class="send-btn">
+        <button form-type="submit" type="primary">发布</button>
     </view>
+    <view class="info-box">
+        <input name="title" placeholder="标题（点击输入）" value="{{default}}"></input>
 
-  </view>
+        <picker name="category" bindchange="bindPickerChange" range="{{category}}" value="{{pickerIndex}}">物品类别：
+            <text>{{category[pickerIndex]}}</text>
+        </picker>
+
+        <input name="realAmount" type="digit" placeholder="价格（点击输入）" value="{{realAmount}}" class="real-amount"></input>
+
+        <textarea name="detail" placeholder="输入你的商品详情，出售理由，新旧程度..." maxlength="-1" value="{{default}}" class="input-detail"></textarea>
+
+
+
+        <view class="img-list">
+            <block wx:for="{{tempFilePaths}}" wx:key="index" wx:for-item="imgItem">
+                <view class="img-item">
+                    <image src="../../images/index/close.png" data-index="{{index}}" class="delete-img" bindtap="deleteImg"></image>
+                    <image src="{{imgItem}}" class="img" mode="aspectFill"></image>
+                </view>
+            </block>
+            <view bindtap="choseImg" class="chose-img" wx:if="{{tempFilePaths.length < 9}}"></view>
+        </view>
+
+    </view>
 
 </form>
