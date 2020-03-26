@@ -13,7 +13,7 @@ Page({
         newComNum: null,
         sendProduct: null,
         saleProduct: null,
-        buyProduct: null,
+        loveProduct: null,
         starProduct: null,
     },
 
@@ -104,13 +104,23 @@ Page({
             }
         }).then(res => {
             that.setData({
-                sendProduct: res.result.data
+                saleProduct: res.result.data
             })
         })
     },
     // 我买到的
-    getBuyProduct() {
-
+    getLoveProduct() {
+        const that = this
+        wx.cloud.callFunction({
+            name: 'getProductInfo',
+            data: {
+                method: 'getUserLove'
+            }
+        }).then(res => {
+            that.setData({
+                loveProduct: res.result.data
+            })
+        })
     },
     // 我收藏的
     getStarProduct() {
@@ -141,7 +151,7 @@ Page({
                 prodType = that.saleProduct
                 break;
             case '2':
-                prodType = that.buyProduct
+                prodType = that.loveProduct
                 break;
             case '3':
                 prodType = that.starProduct
@@ -170,8 +180,8 @@ Page({
         }
         this.getCareFansNum()
         this.getSendProduct()
-        // this.getSaleProduct()
-        // this.getBuyProduct
+        this.getSaleProduct()
+        this.getLoveProduct()
         this.getStarProduct()
 
         // 清除我发布的信息标志
