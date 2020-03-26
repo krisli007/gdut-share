@@ -6,11 +6,11 @@
         "pages/chat/chat",
         "pages/product/product",
         "pages/p2pchat/p2pchat",
-        "pages/publish/publish",
         "pages/prodlist/prodlist",
         "pages/userpage/userpage",
         "pages/settingpage/settingpage",
-        "pages/carelist/carelist"
+        "pages/carelist/carelist",
+        "pages/edit/edit"
     ],
     "requiredBackgroundModes": [
         "audio"

@@ -158,8 +158,7 @@ Page({
                             tempFilePaths: [],
                         })
                     )
-                },
-                fail: console.error
+                }
             })
         }
     },

@@ -63,7 +63,7 @@
 
         <view class="btm-right manage" wx:if="{{userType === 1}}" bindtap="manageActionSheet">管理</view>
 
-        <view class="btm-right want" wx:elif="{{userType === 0}}" bindtap="toSaler">我想要</view>
+        <view class="btm-right want" wx:elif="{{userType === 0}}" bindtap="toSaler">{{product.status === 0 ? '我想要' : '已卖出'}}</view>
     </view>
 
     <!-- 评论窗口 -->

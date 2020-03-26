@@ -1,4 +1,4 @@
-/**index.wxss**/
+/* miniprogram/pages/edit/edit.wxss */
 
 page {
     position: relative;
@@ -25,6 +25,7 @@ input {
     border-bottom: 2rpx solid #eee;
     padding-left: 60rpx;
 }
+
 .relative-box {
     position: relative;
 }
@@ -79,4 +80,9 @@ input {
     right: 10rpx;
     width: 40rpx;
     height: 40rpx;
+}
+
+.grey-word {
+    color: grey;
+    font-size: 18rpx;
 }

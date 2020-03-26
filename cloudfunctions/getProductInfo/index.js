@@ -29,6 +29,15 @@ exports.main = async(event, context) => {
         return productCollection.where({
             star: OPENID
         }).get()
+    } else if (event.method === 'getUserSale') {
+        return productCollection.where({
+            _openid: newOpenId,
+            status: 1
+        }).get()
+    } else if (event.method === 'getUserBuy') {
+        return productCollection.where({
+            buyOpenid: OPENID
+        }).get()
     }
 
 }

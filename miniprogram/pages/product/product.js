@@ -1,5 +1,6 @@
 // miniprogram/pages/product/product.js
 const app = getApp()
+const db = wx.cloud.database()
 const util = require('../../utils/util')
 
 Page({
@@ -198,25 +199,59 @@ Page({
         try {
             await app.checkLoginStatus()
             const that = this
-            wx.showActionSheet({
-                itemList: ['编辑', '删除'],
-                success(res) {
-                    if (res.tapIndex === 0) {
-                        that.toEditProduct()
-                    } else {
+            let prod = this.data.product
+            if (prod.status === 0) {
+                wx.showActionSheet({
+                    itemList: ['已转手', '编辑', '删除'],
+                    success(res) {
+                        if (res.tapIndex === 0) {
+                            that.changeProdStatus()
+                        } else if (res.tapIndex === 1) {
+                            that.toEditProduct()
+                        } else {
+                            that.deleteProduct()
+                        }
+                    }
+                })
+            } else {
+                wx.showActionSheet({
+                    itemList: ['删除'],
+                    success(res) {
                         that.deleteProduct()
                     }
-                }
-            })
+                })
+            }
         } catch (e) {
             console.error(e);
         }
     },
 
+    // 已转手
+    changeProdStatus () {
+        let prod = this.data.product
+        let id = prod._id
+        wx.showModal({
+            title: '确定要关闭该发布信息吗？',
+            content: '关闭之后他人则不能私聊你',
+            confirmText: '确定关闭',
+            cancelText: '我再想想',
+            success: (res) => { 
+                if (res.confirm) {
+                    db.collection('product').doc(id).update({
+                        data: {
+                            status: 1
+                        },
+                    })
+                }
+            }
+        })
+    },
+
     // 编辑
     toEditProduct() {
-        wx.reLaunch({
-            url: '../publish/publish',
+        let prod = this.data.product
+        wx.redirectTo({
+            url: '../edit/edit?prodInfo=' + JSON.stringify(prod),
         })
     },
 
@@ -257,11 +292,13 @@ Page({
     async toSaler() {
         await app.checkLoginStatus()
         let prod = this.data.product
+        if (prod.status === 1) {
+            return
+        }
         let prodOpenId = prod._openid
         let prodUserInfo = prod.userInfo
         let buyUserOpenId = this.data.userOpenId
         console.log(this.data.userOpenId);
-
         wx.navigateTo({
             url: `../p2pchat/p2pchat?prodOpenId=${prodOpenId}&buyUserOpenId=${buyUserOpenId}&prodUserInfo=` + JSON.stringify(prodUserInfo),
         })
