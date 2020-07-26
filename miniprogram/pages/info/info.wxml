@@ -38,7 +38,7 @@
 <view class="flex-jse per-prod-box lr-margin-40">
     <view class="flex-v flex-vm" data-index="2" bindtap="toUserProdListUrl">
         <image src="../../images/info/buy.png" class="logo"></image>
-        我买到的 {{loginStatus ? buyProduct.length : 0}}
+        我点赞的 {{loginStatus ? loveProduct.length : 0}}
     </view>
     <view class="flex-v flex-vm" data-index="3" bindtap="toUserProdListUrl">
         <image src="../../images/info/star.png" class="logo"></image>
