@@ -86,7 +86,7 @@ Page({
         this.data.timer = setInterval(() => {
             this.getNewChat()
             console.log('okok');
-        }, 10000);
+        }, 1000);
         this.setData({
             loginStatus: 1,
         })

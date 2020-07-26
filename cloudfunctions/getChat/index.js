@@ -27,6 +27,7 @@ exports.main = async(event, context) => {
             chatid: _.in(idList)
         }).get().then(res => {
             let chatItem = res.data[0]
+            console.log('-----', res.data[0], '--------------')
             if (chatItem.chatList.slice(-1)[0].openid !== OPENID && chatItem.num > 0) {
                 return p2pchatCollection.where({
                     chatid: _.in(idList)
