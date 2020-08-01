@@ -1,0 +1,19 @@
+<!--miniprogram/pages/carelist/carelist.wxml-->
+
+<image src="../../images/info/bg.png" class="bg-img"></image>
+
+<block wx:for="{{carefansList}}" wx:key="index">
+    <view class="all-margin-40 all-padding-20 flex-js flex-ac care-item" data-index="{{index}}" bindtap="toUserPage">
+        <image src="{{item.info.avatarUrl}}" class="user-avatar"></image>
+        <view class="flex-v flex-jsa">
+            <text>{{item.info.nickName}}</text>
+            <text class="tips">现居{{item.info.city}}，{{item.info.gender === 1 ? '男生。' : '女生。'}}</text>
+        </view>
+        <view class="to-main-page">
+            去TA的主页
+        </view>
+    </view>
+</block>
+<view>
+
+</view>

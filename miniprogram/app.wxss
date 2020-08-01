@@ -1,0 +1,167 @@
+/**app.wxss**/
+
+page {
+    background-color: #f8f8f8;
+}
+
+/* 弧形蓝色背景 */
+
+.bg-img {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 300rpx;
+    z-index: -1;
+}
+
+.lr-padding-20 {
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+
+.lr-margin-20 {
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+
+.lr-margin-40 {
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+}
+
+.all-padding-20 {
+    padding: 20rpx;
+}
+
+.all-margin-20 {
+    margin: 20rpx;
+}
+
+.all-margin-40 {
+    margin: 40rpx;
+}
+
+.autoImg {
+    width: 100%;
+}
+
+/* 文字一行溢出隐藏 */
+
+.text-of-more-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+/* 文字两行溢出隐藏 */
+
+.text-of-more-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* flex布局全局样式 */
+
+/* 水平为主轴(默认) */
+
+.flex {
+    display: flex;
+}
+
+/* 垂直为主轴 */
+
+.flex-v {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 自适应 */
+
+.flex1 {
+    flex: 1;
+}
+
+/* 自动换行 */
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* 主轴起点对齐 */
+
+.flex-js {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* 主轴终点对齐 */
+
+.flex-je {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 主轴中点对齐 */
+
+.flex-jc {
+    display: flex;
+    justify-content: center;
+}
+
+/* 两边无空隙 */
+
+.flex-jsb {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 两边空隙是中间一半 */
+
+.flex-jsa {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* 两边空隙等于中间 */
+
+.flex-jse {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* 侧轴居中 */
+
+.flex-ac {
+    display: flex;
+    align-items: center;
+}
+
+/* 侧轴起点对齐 */
+
+.flex-ac {
+    display: flex;
+    align-items: center;
+}
+
+/* 侧轴终点对齐 */
+
+.flex-ac {
+    display: flex;
+    align-items: center;
+}
+
+/* 水平垂直居中对齐 */
+
+.flex-vm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

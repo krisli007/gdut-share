@@ -1,0 +1,73 @@
+<!--miniprogram/pages/product/product.wxml-->
+<view wx:if="{{userType != -1}}" class="page">
+    <!-- 顶部信息栏 -->
+    <view class="top">
+        <view class="top-left" catchtap="toUserPage">
+            <image src="{{product.userInfo.avatarUrl}}" class="avatar"></image>
+            <text>{{product.userInfo.nickName}}</text>
+        </view>
+        <text class="top-right">发布于{{product.date}}</text>
+    </view>
+
+    <!-- 中部内容区 -->
+    <view class="middle">
+        <text class="real-amount">¥{{product.realAmount}}\n</text>
+        <text class="title">{{product.title}}\n</text>
+        <text class="detail">{{product.detail}}\n</text>
+        <block wx:for="{{product.imgIdArr}}" wx:key="index">
+            <image src="{{item}}" mode="widthFix" class="autoImg" data-index="{{index}}" bindtap="previewImage" bindlongpress="saveImgActionSheet"></image>
+        </block>
+
+        <view class="comment-box">
+            <text class="comment-title">全部评论 · {{comNum}}</text>
+            <block wx:for="{{commentList}}" wx:key="index">
+                <view class="com-item com">
+                    <image src="{{item.avatarUrl}}" class="c-avatar"></image>
+
+                    <view class="right">
+
+                        <view class="right-top">
+                            <text class="nickname">{{item.nickName}}</text>
+                            <text class="date">{{item.date}}</text>
+                        </view>
+
+                        <text class="content">{{item.content}}</text>
+
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="btm-tip" wx:if="{{product}}">
+            <text class="tip">已经到底了～</text>
+        </view>
+    </view>
+
+    <!-- 按评论的时候就会显示评论窗口，隐藏底部操作栏 -->
+
+    <!-- 底部操作栏 -->
+    <view class="bottom" wx:if="{{!isComment}}">
+        <view class="btm-left">
+            <view>
+                <image src="{{isLove?'../../images/product/love_fill.png':'../../images/product/love.png'}}" data-index="1" bindtap="onTouchBtmLeft"></image>
+                点赞({{loveNum}})
+            </view>
+            <view>
+                <image src="../../images/product/comment.png" bindtap="onTouchBtmLeft" data-index="2"></image>
+                评论({{comNum}})
+            </view>
+            <view>
+                <image src="{{isStar?'../../images/product/star_fill.png':'../../images/product/star.png'}}" data-index="3" bindtap="onTouchBtmLeft"></image>
+                收藏({{starNum}})
+            </view>
+        </view>
+
+        <view class="btm-right manage" wx:if="{{userType === 1}}" bindtap="manageActionSheet">管理</view>
+
+        <view class="btm-right want" wx:elif="{{userType === 0}}" bindtap="toSaler">{{product.status === 0 ? '我想要' : '已卖出'}}</view>
+    </view>
+
+    <!-- 评论窗口 -->
+    <view wx:else>
+        <input focus="true" placeholder="写下你想说的话吧..." confirm-type="send" bindconfirm="sendComment" bindblur="hideInputComment"></input>
+    </view>
+</view>

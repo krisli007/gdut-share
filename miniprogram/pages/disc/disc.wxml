@@ -1,0 +1,44 @@
+<!--pages/disc/disc.wxml-->
+<!-- 轮播图 -->
+<swiper class="banner-swiper" indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}" circular="{{banner.circular}}">
+    <block wx:for="{{banner.list}}" wx:key="index">
+        <swiper-item>
+            <image src="{{item}}" class="banner-img"></image>
+        </swiper-item>
+    </block>
+</swiper>
+<!-- 轮播图 -->
+
+<!-- 搜索框 -->
+<input type="text" class="search-box" placeholder="搜索"></input>
+
+<!-- 选项卡导航 -->
+<view style="height:70rpx">
+    <view class="category-box category-{{categoryFixed ? 'fixed' : ''}}">
+        <block wx:for="{{category.list}}" wx:key="index" wx:for-index="index">
+            <text data-index="{{index}}" bindtap="switchTab" class="[{{ index === categoryIndex ? 'category-active' : ''}}, category-item]">{{item}}</text>
+        </block>
+    </view>
+</view>
+
+<!-- 选项卡内容 -->
+<view class="product-content">
+    <block wx:for="{{product}}" wx:key="index">
+        <view class="product-item" wx:if="{{item.category === categoryIndex}}" data-product="{{item}}" bindtap="toProductUrl">
+            <image src="{{item.imgIdArr[0]}}" class="goods-img" mode="aspectFill"></image>
+            <view class="product-info">
+                <text class="product-title">{{item.title}}</text>
+                <text class="product-detail">{{item.detail}}</text>
+                <text class="realAmount">¥{{item.realAmount}}</text>
+                <view class="userInfo">
+                    <image src="{{item.userInfo.avatarUrl}}" class="avatar"></image>
+                    <text>{{item.userInfo.nickName}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+
+<view class="btm-tip" wx:if="{{product}}">
+    已经到底了～
+</view>

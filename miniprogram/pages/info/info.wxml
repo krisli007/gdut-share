@@ -1,0 +1,47 @@
+<!--pages/info/info.wxml-->
+
+<image src="../../images/info/bg.png" class="bg-img"></image>
+
+<view class="userinfo flex-js flex-ac" wx:if="{{loginStatus}}" bindtap="toUserPage">
+    <open-data type="userAvatarUrl" class="user-avatar"></open-data>
+    <view class="name-box flex-v">
+        <open-data type="userNickName"></open-data>
+        <view class="user-page">个人主页 ™</view>
+    </view>
+    <image src="../../images/info/set.png" class="setting" catchtap="toSettingPage"></image>
+</view>
+<view class="login-box flex-ac" wx:else>
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" size="default">点击登录</button>
+</view>
+
+<view class="fans-box flex-jse lr-margin-40">
+    <view class="flex-v flex-vm" data-index="0" bindtap="toCareList">
+        {{careNum ? careNum : 0}}关注
+    </view>
+    <view class="flex-v flex-vm" data-index="1" bindtap="toCareList">
+        {{fansNum ? fansNum : 0 }}粉丝
+    </view>
+</view>
+
+<view class="flex-jse per-prod-box lr-margin-40">
+    <view class="flex-v flex-vm send-box" data-index="0" bindtap="toUserProdListUrl">
+        <image src="../../images/info/publish.png" class="logo"></image>
+        <view wx:if="{{newComNum > 0}}" class="new-com-num">{{newComNum}}</view>
+        我发布的 {{loginStatus ? sendProduct.length : 0}}
+    </view>
+    <view class="flex-v flex-vm" data-index="1" bindtap="toUserProdListUrl">
+        <image src="../../images/info/sale.png" class="logo"></image>
+        我卖出的 {{loginStatus ? saleProduct.length : 0}}
+    </view>
+</view>
+
+<view class="flex-jse per-prod-box lr-margin-40">
+    <view class="flex-v flex-vm" data-index="2" bindtap="toUserProdListUrl">
+        <image src="../../images/info/buy.png" class="logo"></image>
+        我点赞的 {{loginStatus ? loveProduct.length : 0}}
+    </view>
+    <view class="flex-v flex-vm" data-index="3" bindtap="toUserProdListUrl">
+        <image src="../../images/info/star.png" class="logo"></image>
+        我的收藏 {{loginStatus ? starProduct.length : 0}}
+    </view>
+</view>

@@ -1,0 +1,57 @@
+/* miniprogram/pages/p2pchat/p2pchat.wxss */
+
+page {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+}
+
+.chat-box {
+    padding: 20rpx 0;
+    overflow-y: scroll;
+}
+
+.btm-box {
+    width: 100%;
+    padding: 0 20rpx;
+    border-top: 2rpx solid #0001;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.prod, .buy {
+    margin-top: 30rpx;
+}
+
+.avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 8rpx;
+}
+
+.prod > .avatar {
+    margin-right: 20rpx;
+}
+
+.prod > .content {
+    padding: 20rpx;
+    border-radius: 8rpx;
+    background-color: #fff;
+}
+
+.buy > .avatar {
+    margin-left: 20rpx;
+}
+
+.buy > .content {
+    padding: 20rpx;
+    border-radius: 8rpx;
+    background-color: #a1e85c;
+}
+
+input {
+    height: 100rpx;
+    padding: 0 20rpx;
+}

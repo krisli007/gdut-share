@@ -1,0 +1,88 @@
+/* miniprogram/pages/edit/edit.wxss */
+
+page {
+    position: relative;
+    padding: 0 60rpx;
+    box-sizing: border-box;
+}
+
+.info-box {
+    margin-bottom: 120rpx;
+}
+
+.send-btn {
+    width: 630rpx;
+    height: 120rpx;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    padding: 20rpx 0;
+    margin: 20rpx 0;
+    border-top: 2rpx solid #eee;
+    border-bottom: 2rpx solid #eee;
+    padding-left: 60rpx;
+}
+
+.relative-box {
+    position: relative;
+}
+.title-icon {
+    position: absolute;
+    width: 40rpx;
+    height: 40rpx;
+    top: 24rpx;
+}
+.money-icon {
+    position: absolute;
+    width: 40rpx;
+    height: 40rpx;
+    top: 24rpx;
+}
+
+.placeholder {
+    color: #000;
+}
+
+.input-detail {
+    height: 180rpx;
+    overflow-y: scroll;
+}
+
+.chose-img {
+    background: #eee url('http://cimg1.fenqile.com/product5/M00/4A/A0/MtEHAF5y_bmACUM0AAAJrNtzCz4458.png') no-repeat center center;
+    background-size: 50%;
+}
+
+.img-list {
+    margin-top: 30rpx;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.img-item {
+    position: relative;
+}
+
+.img, .chose-img {
+    margin-top: 10rpx;
+    margin-right: 10rpx;
+    width: 200rpx;
+    height: 200rpx;
+}
+
+.delete-img {
+    position: absolute;
+    top: 15rpx;
+    right: 10rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.grey-word {
+    color: grey;
+    font-size: 18rpx;
+}

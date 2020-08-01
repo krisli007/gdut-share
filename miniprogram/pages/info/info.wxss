@@ -1,0 +1,98 @@
+/* pages/info/info.wxss */
+
+/*修改button样式，需要在button标签内“size="default"”    *button[size] {
+ *}
+ */
+
+.login-box {
+    height: 200rpx;
+}
+
+button[size] {
+    background-color: transparent;
+    border: 2rpx solid #eee;
+    border-radius: 20rpx;
+    color: #eee;
+    box-shadow: inset 0 0 10rpx 0 #eee;
+}
+
+.userinfo {
+    position: relative;
+    height: 200rpx;
+    width: 100%;
+    padding-left: 80rpx;
+    padding-right: 80rpx;
+    color: #eee;
+    box-sizing: border-box;
+}
+
+.user-avatar {
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 20rpx;
+    border-radius: 8rpx;
+}
+
+.user-page {
+    margin-top: 15rpx;
+    padding: 5rpx 10rpx;
+    font-size: 20rpx;
+    border-radius: 30rpx;
+    color: #5c5c5c;
+    background-color: #fff;
+}
+
+.setting {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 50rpx;
+    right: 80rpx;
+}
+
+/* 粉丝关注 */
+
+.fans-box {
+    margin-bottom: 40rpx;
+    height: 100rpx;
+    font-size: 28rpx;
+    color: #5c5c5c;
+    background-color: #fff;
+    border-radius: 40rpx;
+    box-shadow: 0rpx 0rpx 30rpx 0 #ccc;
+}
+
+.send-box {
+    position: relative;
+}
+
+.logo {
+    width: 70rpx;
+    height: 70rpx;
+    margin-bottom: 10rpx;
+}
+
+.new-com-num {
+    position: absolute;
+    top: 20rpx;
+    left: 110rpx;
+    border-radius: 24rpx;
+    font-size: 24rpx;
+    padding: 0 10rpx;
+    background-color: red;
+    color: #eee;
+}
+
+.per-prod-box {
+    margin-bottom: 40rpx;
+    height: 160rpx;
+    font-size: 28rpx;
+    color: #5c5c5c;
+    background-color: #fff;
+    border-radius: 16rpx;
+    box-shadow: 0rpx 0rpx 30rpx 0 #eee;
+}
+
+.fans-box > view, .per-prod-box > view {
+    width: 200rpx;
+}

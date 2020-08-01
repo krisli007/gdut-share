@@ -1,0 +1,30 @@
+<!--miniprogram/pages/edit/edit.wxml-->
+<!--index.wxml-->
+<form bindsubmit="formSubmit">
+    <view class="send-btn">
+        <button form-type="submit" type="primary">保存并发布</button>
+    </view>
+    <view class="info-box">
+        <view class="relative-box">
+            <image src="../../images/index/title.png" class="title-icon"></image>
+            <input name="title" placeholder="标题（点击输入）" value="{{prodInfo.title}}"></input>
+        </view>
+        <picker name="category" bindchange="bindPickerChange" range="{{category}}" value="{{prodInfo.category}}">物品类别：
+            <text>{{pickerIndex === -1 ? category[prodInfo.category] : category[pickerIndex]}}</text>
+        </picker>
+        <view class="relative-box">
+            <image src="../../images/index/money.png" class="money-icon"></image>
+            <input name="realAmount" type="digit" placeholder="价格（点击输入）" value="{{prodInfo.realAmount}}" class="real-amount"></input>
+        </view>
+        <textarea name="detail" placeholder="输入你的商品详情，出售理由，新旧程度..." maxlength="-1" value="{{prodInfo.detail}}" class="input-detail"></textarea>
+        <view class="img-list">
+            <block wx:for="{{tempFilePaths}}" wx:key="index" wx:for-item="imgItem">
+                <view class="img-item">
+                    <image src="{{imgItem}}" class="img" mode="aspectFill"></image>
+                </view>
+            </block>
+        </view>
+        <text class="flex-vm grey-word">照片暂时不能修改哦~</text>
+    </view>
+
+</form>
