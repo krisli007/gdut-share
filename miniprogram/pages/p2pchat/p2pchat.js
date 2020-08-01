@@ -71,7 +71,7 @@ Page({
         wx.cloud.callFunction({
             name: 'getChat',
             data: {
-                method: 'clearNewChatTag',
+                method: 'clearNewChatTag', 
                 prodOpenId: prodOpenId
             }
         })
@@ -116,7 +116,7 @@ Page({
 
         this.data.timer = setInterval(() => {
             this.getNewMsg(prodOpenId, prodUserInfo, buyUserInfo, buyUserOpenId)
-        }, 5000);
+        }, 1000);
 
     },
 

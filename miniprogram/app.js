@@ -56,15 +56,18 @@ App({
                 wx.removeTabBarBadge({
                     index: 2,
                 })
+                console.log('清除消息提醒')
             }
             return
         }
         wx.cloud.callFunction({
             name: 'getChat',
         }).then(res => {
+            console.log(res.result.data, '1111111')
             const chatPageList = res.result.data
             for (const key in chatPageList) {
                 if (chatPageList.hasOwnProperty(key)) {
+                    console.log(chatPageList[key].num)
                     newNum += chatPageList[key].num;
                 }
             }
@@ -73,6 +76,11 @@ App({
                     index: 2,
                     text: newNum + '',
                 })
+            } else {
+                wx.removeTabBarBadge({
+                    index: 2,
+                })
+                console.log('清除消息提醒out')
             }
         })
     },
